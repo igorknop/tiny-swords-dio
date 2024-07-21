@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://btt73ol25u6yd"]
+
+[ext_resource type="PackedScene" uid="uid://dl5v732wbbkps" path="res://player/player.tscn" id="1_t3w7g"]
+[ext_resource type="PackedScene" uid="uid://bh7ysd1joqhi7" path="res://misc/ritual.tscn" id="2_hhrys"]
+
+[node name="TestRitual" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_t3w7g")]
+ritual_scene = ExtResource("2_hhrys")
+
+[node name="Ritual" parent="." instance=ExtResource("2_hhrys")]

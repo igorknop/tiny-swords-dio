@@ -1,12 +1,22 @@
 class_name Player
 extends CharacterBody2D
 
+@export var death_prefab: PackedScene
+@export_category("Movement")
 @export var speed = 3
-@export var sword_damage:int = 2
 
+@export_category("Combat")
+@export var sword_damage:int = 2
 @export var max_health: int = 100
 @export var health: int = max_health
-@export var death_prefab: PackedScene
+@export_category("Ritual")
+@export var ritual_damage:int = 1
+@export var ritual_interval:int = 30
+@export var ritual_scene:PackedScene
+
+
+
+
 
 var input_vector: Vector2 = Vector2(0,0)
 var is_running: bool = false
@@ -14,6 +24,7 @@ var was_running: bool = false
 var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var hitbox_cooldown: float = 0.0
+var ritual_cooldown: float = 0.0
 
 @onready var sword_area_2d = $SwordArea2D
 @onready var hitbox_area_2d = $HitBoxArea2D
@@ -29,6 +40,7 @@ func _process(delta):
 			is_running = false
 			animation_player.play("idle")
 	update_hitbox_detection(delta)
+	update_ritual(delta)
 		
 func read_input():
 	input_vector = Input.get_vector("ui_left", "ui_right","ui_up","ui_down")	
@@ -123,3 +135,12 @@ func heal(amount: int)->int:
 	var healed = min(max_health - health, amount);
 	health += healed
 	return healed
+
+
+func update_ritual(delta: float) -> void:
+	ritual_cooldown -= delta
+	if ritual_cooldown>0: return
+	ritual_cooldown = ritual_interval
+	var ritual = ritual_scene.instantiate()
+	add_child(ritual)
+	ritual.ritual_damage = ritual_damage
