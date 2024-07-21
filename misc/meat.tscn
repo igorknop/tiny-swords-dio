@@ -1,6 +1,35 @@
-[gd_scene load_steps=10 format=3 uid="uid://sca0b6yjkfx2"]
+[gd_scene load_steps=19 format=3 uid="uid://sca0b6yjkfx2"]
 
 [ext_resource type="Texture2D" uid="uid://dh41t5kglu0lj" path="res://Tiny Swords/Resources/Resources/M_Spawn.png" id="1_m77wk"]
+[ext_resource type="Script" path="res://misc/life_gain.gd" id="2_w7pqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx3kl"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uo8k"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f0rt"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iyk1"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2632h"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r61wt"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5esli"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jn7bh"]
 atlas = ExtResource("1_m77wk")
@@ -34,6 +63,35 @@ region = Rect2(768, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jx3kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uo8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f0rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iyk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2632h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r61wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5esli")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"despawn",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jn7bh")
 }, {
 "duration": 1.0,
@@ -55,11 +113,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_w5ana")
 }],
 "loop": false,
-"name": &"default",
+"name": &"spawn",
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbfib"]
+radius = 17.0
+height = 46.0
+
 [node name="Meat" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_qyky0")
-autoplay = "default"
+animation = &"despawn"
+autoplay = "spawn"
 offset = Vector2(-4, -27)
+script = ExtResource("2_w7pqv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -13)
+rotation = -1.93669
+shape = SubResource("CapsuleShape2D_lbfib")

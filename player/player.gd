@@ -1,9 +1,11 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed = 3
 @export var sword_damage:int = 2
 
-@export var health: int = 100
+@export var max_health: int = 100
+@export var health: int = max_health
 @export var death_prefab: PackedScene
 
 var input_vector: Vector2 = Vector2(0,0)
@@ -115,3 +117,9 @@ func die()->void:
 		get_parent().add_child(death_object)
 		print("Player died!")
 		queue_free()
+
+
+func heal(amount: int)->int:
+	var healed = min(max_health - health, amount);
+	health += healed
+	return healed
