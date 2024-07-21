@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1kkus77k4tw8"]
+[gd_scene load_steps=14 format=3 uid="uid://b1kkus77k4tw8"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_8qb7a"]
 [ext_resource type="Script" path="res://enemies/behaviours/follow_player.gd" id="1_feiyf"]
 [ext_resource type="Texture2D" uid="uid://bpkukrhmjaive" path="res://Tiny Swords/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="2_3b87c"]
 [ext_resource type="PackedScene" uid="uid://qfak5pk0e6by" path="res://misc/skull.tscn" id="2_bmofb"]
+[ext_resource type="Script" path="res://player/HitPoints.gd" id="5_w1fcq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0oje"]
 atlas = ExtResource("2_3b87c")
@@ -61,6 +62,7 @@ height = 50.0
 
 [node name="Pawn" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_8qb7a")
+enemy_damage = 3
 death_prefab = ExtResource("2_bmofb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -77,3 +79,12 @@ shape = SubResource("CapsuleShape2D_d76po")
 
 [node name="FollowNode" type="Node" parent="."]
 script = ExtResource("1_feiyf")
+
+[node name="HitPoints" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -77.0
+offset_right = 20.0
+offset_bottom = -54.0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_w1fcq")

@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://sca0b6yjkfx2"]
+
+[ext_resource type="Texture2D" uid="uid://dh41t5kglu0lj" path="res://Tiny Swords/Resources/Resources/M_Spawn.png" id="1_m77wk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn7bh"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oax7"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1swag"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb6me"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jmat"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2top"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5ana"]
+atlas = ExtResource("1_m77wk")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyky0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn7bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oax7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1swag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb6me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jmat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2top")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5ana")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Meat" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_qyky0")
+autoplay = "default"
+offset = Vector2(-4, -27)
