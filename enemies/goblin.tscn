@@ -90,3 +90,6 @@ offset_bottom = -66.0
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_6ro6q")
+
+[node name="DamageMarker" type="Marker2D" parent="."]
+position = Vector2(0, -47.5)

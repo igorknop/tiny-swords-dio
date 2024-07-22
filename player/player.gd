@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var death_prefab: PackedScene
+
 @export_category("Movement")
 @export var speed = 3
 
@@ -9,11 +10,13 @@ extends CharacterBody2D
 @export var sword_damage:int = 2
 @export var max_health: int = 100
 @export var health: int = max_health
+
 @export_category("Ritual")
 @export var ritual_damage:int = 1
 @export var ritual_interval:int = 30
 @export var ritual_scene:PackedScene
 
+@onready var progress_bar = $ProgressBar
 
 
 
@@ -41,6 +44,8 @@ func _process(delta):
 			animation_player.play("idle")
 	update_hitbox_detection(delta)
 	update_ritual(delta)
+	progress_bar.max_value = max_health
+	progress_bar.value = health
 		
 func read_input():
 	input_vector = Input.get_vector("ui_left", "ui_right","ui_up","ui_down")	
@@ -138,6 +143,7 @@ func heal(amount: int)->int:
 
 
 func update_ritual(delta: float) -> void:
+	if not ritual_scene: return
 	ritual_cooldown -= delta
 	if ritual_cooldown>0: return
 	ritual_cooldown = ritual_interval

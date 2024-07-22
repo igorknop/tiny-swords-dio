@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg8dw4kpx5wok"]
+
+[ext_resource type="PackedScene" uid="uid://dl5v732wbbkps" path="res://player/player.tscn" id="1_2pelb"]
+[ext_resource type="Texture2D" uid="uid://bliybx3qpf4vp" path="res://Tiny Swords/UI/Banners/Banner_Horizontal.png" id="2_lb7xp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_engo6"]
+texture = ExtResource("2_lb7xp")
+texture_margin_left = 32.0
+texture_margin_top = 80.0
+texture_margin_right = 32.0
+texture_margin_bottom = 112.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(32, 48, 128, 128)
+
+[sub_resource type="LabelSettings" id="LabelSettings_umeot"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[node name="TestUi" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_2pelb")]
+position = Vector2(271, 370)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.5
+offset_top = 10.0
+offset_right = 29.5
+offset_bottom = 33.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_bottom = 119.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_engo6")
+
+[node name="GoldLabel" type="Label" parent="CanvasLayer/ScorePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.5
+offset_top = 18.0
+offset_right = 41.5
+offset_bottom = 41.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+text = "20000 gold"
+label_settings = SubResource("LabelSettings_umeot")
+horizontal_alignment = 2
+
+[node name="MeatLabel" type="Label" parent="CanvasLayer/ScorePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.5
+offset_top = -68.0
+offset_right = 31.5
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+text = "50 meat"
+label_settings = SubResource("LabelSettings_umeot")
+horizontal_alignment = 2
