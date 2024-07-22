@@ -34,6 +34,9 @@ var ritual_cooldown: float = 0.0
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
 
+func _ready():
+	GameManager.player = self
+
 func _process(delta):
 	read_input()	
 	if is_attacking:
@@ -139,6 +142,7 @@ func die()->void:
 func heal(amount: int)->int:
 	var healed = min(max_health - health, amount);
 	health += healed
+	
 	return healed
 
 
@@ -150,3 +154,5 @@ func update_ritual(delta: float) -> void:
 	var ritual = ritual_scene.instantiate()
 	add_child(ritual)
 	ritual.ritual_damage = ritual_damage
+
+signal meat_collected(value: int)
