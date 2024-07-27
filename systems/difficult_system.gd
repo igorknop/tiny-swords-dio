@@ -9,6 +9,7 @@ var time: float = 0.0
 
 
 func _process(delta:float)-> void:
+	if GameManager.is_game_over: return
 	time += delta
 	var spawn_rate = initial_mobs_per_minute + mobs_increase_per_minute * time/60.0
 	var sin_wave = sin(time*TAU/wave_duration)

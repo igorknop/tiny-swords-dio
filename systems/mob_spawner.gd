@@ -13,6 +13,7 @@ func get_point() -> Vector2:
 	return path_follow_2d.position
 
 func _process(delta):
+	if GameManager.is_game_over: return
 	cooldown -= delta
 	if cooldown <= 0.0:
 		cooldown = mobs_per_minute / 60.0;

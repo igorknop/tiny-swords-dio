@@ -1,7 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://ct0iqch7xrocy"]
+[gd_scene load_steps=39 format=3 uid="uid://ct0iqch7xrocy"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_1464t"]
 [ext_resource type="PackedScene" uid="uid://dl5v732wbbkps" path="res://player/player.tscn" id="1_huii5"]
 [ext_resource type="PackedScene" uid="uid://d1vpev4duijnu" path="res://systems/mob_spawner.tscn" id="2_lqmpr"]
+[ext_resource type="PackedScene" uid="uid://cdlq1lo6y1216" path="res://ui/game_over_ui.tscn" id="2_uig8g"]
 [ext_resource type="Texture2D" uid="uid://quj8p424njgc" path="res://Tiny Swords/Deco/01.png" id="2_x8gs1"]
 [ext_resource type="PackedScene" uid="uid://bh7ysd1joqhi7" path="res://misc/ritual.tscn" id="3_jfloj"]
 [ext_resource type="Texture2D" uid="uid://by16s04t8pnak" path="res://Tiny Swords/Deco/14.png" id="3_l5rvf"]
@@ -185,7 +187,10 @@ size = Vector2(3296.53, 150)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rr1vh"]
 size = Vector2(3604.6, 150)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui")]
+script = ExtResource("1_1464t")
+game_ui = NodePath("GameUI")
+game_over_ui_template = ExtResource("2_uig8g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(543, 336)
