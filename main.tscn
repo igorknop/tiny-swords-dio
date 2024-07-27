@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ct0iqch7xrocy"]
+[gd_scene load_steps=37 format=3 uid="uid://ct0iqch7xrocy"]
 
 [ext_resource type="PackedScene" uid="uid://dl5v732wbbkps" path="res://player/player.tscn" id="1_huii5"]
 [ext_resource type="PackedScene" uid="uid://d1vpev4duijnu" path="res://systems/mob_spawner.tscn" id="2_lqmpr"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://jo7ekgb6tms5" path="res://Tiny Swords/Deco/12.png" id="10_dr462"]
 [ext_resource type="Texture2D" uid="uid://dg031lhumwooi" path="res://Tiny Swords/Deco/13.png" id="11_lu5lh"]
 [ext_resource type="PackedScene" uid="uid://d58ch3bl4igg" path="res://tree.tscn" id="19_b5uig"]
+[ext_resource type="Script" path="res://systems/difficult_system.gd" id="20_0khwd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fe64"]
 texture = ExtResource("6_5ffny")
@@ -325,3 +326,7 @@ scale = Vector2(1.03547, 4.9146)
 shape = SubResource("RectangleShape2D_rr1vh")
 one_way_collision_margin = 0.0
 debug_color = Color(0.836988, 0.386631, 0, 0.42)
+
+[node name="Difficult" type="Node" parent="." node_paths=PackedStringArray("mob_spawner")]
+script = ExtResource("20_0khwd")
+mob_spawner = NodePath("../MobSpawner")
