@@ -19,6 +19,7 @@ extends CharacterBody2D
 @onready var progress_bar = $ProgressBar
 
 
+signal meat_collected(value: int)
 
 
 var input_vector: Vector2 = Vector2(0,0)
@@ -155,4 +156,3 @@ func update_ritual(delta: float) -> void:
 	add_child(ritual)
 	ritual.ritual_damage = ritual_damage
 
-signal meat_collected(value: int)

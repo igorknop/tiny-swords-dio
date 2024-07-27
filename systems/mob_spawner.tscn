@@ -14,7 +14,6 @@ point_count = 5
 [node name="MobSpawner" type="Node2D"]
 script = ExtResource("1_p14e6")
 creatures = Array[PackedScene]([ExtResource("2_4nrn1"), ExtResource("3_hetli"), ExtResource("4_h0g5i"), ExtResource("4_h0g5i"), ExtResource("4_h0g5i"), ExtResource("3_hetli")])
-spawn_freq = 6.0
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_1k3wu")

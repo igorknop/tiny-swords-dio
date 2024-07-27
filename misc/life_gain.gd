@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@export var life_gain = 20
+@export var life_gain = 100
 
 
 func _ready():
