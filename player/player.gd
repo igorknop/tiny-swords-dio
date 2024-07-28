@@ -37,6 +37,7 @@ var ritual_cooldown: float = 0.0
 
 func _ready():
 	GameManager.player = self
+	meat_collected.connect(func(): GameManager.meat_amount+=1)
 
 func _process(delta):
 	read_input()	

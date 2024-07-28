@@ -40,6 +40,7 @@ func die()->void:
 	if randf() <= drop_chance:
 		drop_item()
 	queue_free()
+	GameManager.monsters_defeated += 1
 
 func drop_item() -> void:
 	var drop_prefab = get_random_drop_item()

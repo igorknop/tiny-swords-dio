@@ -217,7 +217,11 @@ animation = &"spawn"
 [node name="Player" parent="." instance=ExtResource("1_huii5")]
 y_sort_enabled = true
 position = Vector2(543, 336)
+sword_damage = null
+max_health = null
 health = 80
+ritual_damage = null
+ritual_interval = null
 ritual_scene = ExtResource("3_jfloj")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
